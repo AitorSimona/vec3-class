@@ -5,69 +5,50 @@ template <class T>
 
 class vec3 {
 
-private:
-
-	T x;
-	T y;
-	T z;
-
 public:
-	vec3() : x(0), y(0), z(0) {}
 
-	vec3(T _x, T _y, T _z) : x(_x), y(_y), z(_z) {}
+	T x, y, z;
 
-	vec3(vec3 &_copy) : x(_copy.x), y(_copy.y), z(_copy.z) {}
 
-	~vec3() {}
+	vec3() {}
+
+	vec3(const T x, const T y, const T z) : this->x(x), this->y(y), this->z(z) {}
+
+	vec3(const vec3 &copy) : x(copy.x), y(copy.y), z(copy.z) {}
+
 
 	vec3 operator + (const vec3 &aux) const {
-		vec3 res;
-
-		res.x = x + aux.x;
-		res.y = y + aux.y;
-		res.z = z + aux.z;
-
-		cout << res.x << " " << res.y << " " << res.z << " " << endl;
-
-		return res;
+		return vec3(x + aux.x, y + aux.y, z + aux.z);
 	}
 
 	vec3 operator - (const vec3 &aux) const {
-		vec3 res;
-
-		res.x = x -= aux.x;
-		res.y = y -= aux.y;
-		res.z = z -= aux.z;
-
-		cout << res.x << " " << res.y << " " << res.z << " " << endl;
-
-		return res;
+		return vec3(x - aux.x, y - aux.y, z - aux.z)
 	}
 
-	bool operator += (const vec3 &aux) {
+	vec3 operator += (const vec3 &aux) {
 
 		x += aux.x;
 		y += aux.y;
 		z += aux.z;
 
-		return true;
+		return *this;
 	}
 
-	bool operator -= (const vec3 &aux) {
+	vec3 operator -= (const vec3 &aux) {
 
 		x -= aux.x;
 		y -= aux.y;
 		z -= aux.z;
 
-		return true;
+		return *this;
 	}
 
-	bool operator = (const vec3 &aux) {
+	vec3 operator = (const vec3 &aux) {
 		x = aux.x;
 		y = aux.y;
 		z = aux.z;
 
-		return true;
+		return *this;
 	}
 
 	bool operator == (const vec3 &aux) const {
@@ -88,9 +69,9 @@ public:
 
 	void zero() {
 
-		x = 0;
-		y = 0;
-		z = 0;
+		x = 0.0f;
+		y = 0.0f;
+		z = 0.0f;
 	}
 
 	bool is_zero() const {
