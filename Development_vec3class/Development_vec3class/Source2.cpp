@@ -1,12 +1,12 @@
-#include <iostream>
+//#include <iostream>
 #include "vec3.h"
 
-using namespace std;
+//using namespace std;
 
 
 int main() {
 
-	vec3 <float> vec_1 (1,2,-3);
+	/*vec3 <float> vec_1 (1,2,-3);
 	vec3 <float> vec_2 (3,-2,4);
 	vec3 <float> vec_3;
 
@@ -81,7 +81,7 @@ int main() {
 	cout << endl << endl;
 
 	cout << "---TEST END---" << endl << endl;
-
+*/
 
 
 	system("pause");
